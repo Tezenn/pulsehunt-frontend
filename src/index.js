@@ -1,19 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { BrowserRouter, Route } from 'react-router-dom';
-import reducers from './reducers';
-import { loadState, saveState } from './localStorage';
-import registerServiceWorker from './registerServiceWorker';
-import NavBar from './components/NavBar';
-import MapView from './containers/MapView';
-import AddEpisode from './containers/AddEpisode';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import reducers from "./reducers";
+import { loadState, saveState } from "./localStorage";
+import registerServiceWorker from "./registerServiceWorker";
+import NavBar from "./components/NavBar";
+import MapView from "./containers/MapView";
+import AddEpisode from "./containers/AddEpisode";
 
-import './index.css';
+import "./index.css";
 
-let store = createStore(reducers, loadState(), window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(
+  reducers,
+  loadState(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+const userPos = navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
 
 store.subscribe(() => {
   saveState(store.getState());
@@ -31,8 +38,8 @@ ReactDOM.render(
         </div>
       </BrowserRouter>
     </React.Fragment>
-  </Provider>, 
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
 
 registerServiceWorker();
