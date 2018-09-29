@@ -1,6 +1,6 @@
 .navbar-container {
   display: flex;
-  background-color: var(--pine);
+  background-color: rgba(0, 0, 0, 0.05);
   color: white;
   padding: 10px 20px;
   justify-content: space-between;
@@ -22,8 +22,13 @@
   margin: 2px;
 }
 
-.logo-area, .user-info {
+.logo-area,
+.loginSignupArea {
   align-self: center;
+  display: flex;
+}
+.loginSignupArea button {
+  padding-left: 10px;
 }
 
 .logo-area h1 {
@@ -33,4 +38,8 @@
 
 .logo-area a {
   text-decoration: none;
+}
+
+.logo {
+  height: 80px;
 }

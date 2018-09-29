@@ -1,12 +1,15 @@
 import React from "react";
 import { Field, Fields, reduxForm } from "redux-form";
-import "./style.css";
+import "../../styles.css";
 
 let LoginForm = props => {
   console.log(props);
   const { handleSubmit } = props;
+  return <div />;
 };
 
-loginSignupForm = reduxForm({
+LoginForm = reduxForm({
   form: "loginForm"
 })(LoginForm);
+
+export default LoginForm;

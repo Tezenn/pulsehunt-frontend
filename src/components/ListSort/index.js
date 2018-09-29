@@ -1,8 +1,7 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "../../styles.css";
 
 export default class ListSort extends React.Component {
-
   render() {
     return (
       <div className="list-sort-container">

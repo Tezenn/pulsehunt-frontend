@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import MapView from "./containers/MapView";
 import AddEpisode from "./containers/AddEpisode";
 
-import "./index.css";
+import "./styles.css";
 
 let store = createStore(
   reducers,

@@ -28,11 +28,11 @@ const defaultState = {
     singleEpisode: {}
   },
   user: {
-    _id: "5adc8d0e3f2dcd259ad50d67",
-    name: "Tyler Durden",
-    bio: "Indie Trainer",
+    _id: "",
+    name: "",
+    bio: "",
     photos: [],
-    type: "trainer"
+    type: ""
   }
 };
 

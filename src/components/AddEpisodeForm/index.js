@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Fields, reduxForm } from "redux-form";
 import CreateGeoSuggest from "../CreateGeoSuggest";
-import "./style.css";
+import "../../styles.css";
 
 let AddEpisodeForm = props => {
   console.log(props);

@@ -1,10 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { episodesFetchSuccess } from '../../actions';
-import './style.css';
+import React from "react";
+import { connect } from "react-redux";
+import { episodesFetchSuccess } from "../../actions";
+import "../../styles.css";
 
 class FilterPicker extends React.Component {
-
   render() {
     return (
       <div className="filter-container">
@@ -18,15 +17,18 @@ class FilterPicker extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     filter: state.filter,
     filtered: state.episodes.filtered
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  episodesFetchSuccess: (episodes) => dispatch(episodesFetchSuccess(episodes)),
+const mapDispatchToProps = dispatch => ({
+  episodesFetchSuccess: episodes => dispatch(episodesFetchSuccess(episodes))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterPicker);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilterPicker);
