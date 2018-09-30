@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 /* import { Field, Fields, reduxForm } from "redux-form"; */
-import "../../styles.css";
-import btoa from 'btoa'
-
+import '../../styles.css';
+import btoa from 'btoa';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     };
   }
 
@@ -18,15 +17,17 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit = e => {
-    let test = this.state.username + ":" + btoa(this.state.password);
-    console.log("test: ", test);
+    let test = btoa(this.state.username + ':' + this.state.password);
+    console.log('test: ', test);
     e.preventDefault();
-    fetch("http://localhost:3001/signin", {
+    fetch('http://localhost:3001/trainer/signin', {
       headers: new Headers({
-        'Authorization': + test,
+        Authorization: 'Basic ' + test,
         'Content-Type': 'application/x-www-form-urlencoded'
       })
-    });
+    })
+      .then(res => res)
+      .then(res => console.log(res));
   };
 
   render() {
@@ -52,7 +53,11 @@ class LoginForm extends React.Component {
             required
           />
         </div>
-        <button type="submit" onSubmit={() => this.handleSubmit} className="standardButton">
+        <button
+          type="submit"
+          onSubmit={() => this.handleSubmit}
+          className="standardButton"
+        >
           LOG IN
         </button>
       </form>
