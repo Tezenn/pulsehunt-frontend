@@ -1,44 +1,41 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { setLoggedInTrainer } from "../../actions";
+
+import { setLoggedInUser } from "../../actions";
 import Dashboard from "../../components/Dashboard";
 import EpisodeList from "../../components/EpisodeList";
 import Map from "../../components/Map";
 import Episode from "../../components/Episode";
 import "../../styles.css";
-import LoginSignupPage from "../LoginSignupPage/LognSignupPage";
 
 class MapView extends React.Component {
-  /*  componentWillMount() {
+  componentWillMount() {
     fetch("http://localhost:3001/trainer/5adc8d0e3f2dcd259ad50d67")
       .then(trainer => trainer.json())
       .then(trainer => this.props.setLoggedInTrainer(trainer));
-  } */
+  }
 
   render() {
+    console.log(this.props.user);
     return (
       <div className="mapview-container">
-        {this.props.user.type === "" ? (
-          <LoginSignupPage />
-        ) : (
-          <div>
-            <Dashboard />
-            <EpisodeList />
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <Map
-                  containerElement={<div className="map-container" />}
-                  mapElement={<div style={{ height: `100%` }} />}
-                />
-              )}
-            />
+        <div>
+          <Dashboard />
+          <EpisodeList />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Map
+                containerElement={<div className="map-container" />}
+                mapElement={<div style={{ height: `100%` }} />}
+              />
+            )}
+          />
 
-            <Route path="/episode/:id" component={Episode} />
-          </div>
-        )}
+          <Route path="/episode/:id" component={Episode} />
+        </div>
       </div>
     );
   }
@@ -49,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setLoggedInTrainer: trainer => dispatch(setLoggedInTrainer(trainer))
+  setLoggedInUser: user => dispatch(setLoggedInUser(user))
 });
 
 export default connect(

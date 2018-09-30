@@ -23,13 +23,7 @@ const NavBar = props => {
             <Link to="/schedule">
               <button className="navbar-button">MY SCHEDULE</button>
             </Link>
-          ) : /* (
-            <div className="loginSignupArea">
-              <button className="navbar-button">SIGN UP</button>
-
-              <button className="navbar-button">LOG IN</button>
-            </div>
-          ) */ null}
+          ) : null}
         </div>
       </div>
     </div>
