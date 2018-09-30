@@ -18,12 +18,12 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit = e => {
-    let test = this.state.username + ":" + this.state.password;
+    let test = this.state.username + ":" + btoa(this.state.password);
     console.log("test: ", test);
     e.preventDefault();
     fetch("http://localhost:3001/signin", {
       headers: new Headers({
-        'Authorization': + btoa(test),
+        'Authorization': + test,
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     });
@@ -32,7 +32,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="loginOrSignupForm">
-        <h2 style={{ textAlign: "center" }}>LOGIN</h2>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -53,8 +52,8 @@ class LoginForm extends React.Component {
             required
           />
         </div>
-        <button type="submit" className="standardButton">
-          LOGIN
+        <button type="submit" onSubmit={() => this.handleSubmit} className="standardButton">
+          LOG IN
         </button>
       </form>
     );

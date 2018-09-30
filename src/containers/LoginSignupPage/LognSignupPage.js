@@ -7,18 +7,27 @@ import Logo from "../../assets/logo.png";
 
 class LoginSignupPage extends Component {
   state = {
-    activeSignup: false
+    activeSignup: false,
+    activeLogin: false
   };
 
   onLoginSubmit(e) {
     e.preventDefault();
-    
+
   }
 
   toggleSignup() {
     this.setState({
-      activeSignup: !this.state.activeSignup
+      activeSignup: !this.state.activeSignup,
+      activeLogin: false
     });
+  }
+
+  toggleLogin() {
+    this.setState({
+      activeLogin: !this.state.activeLogin,
+      activeSignup: false
+    })
   }
   render() {
     return (
@@ -28,14 +37,23 @@ class LoginSignupPage extends Component {
           {!this.state.activeSignup ? (
             <button
               type="button"
-              className="standardButton"
+              className={`standardButton ${this.state.activeLogin ? 'greyedButton' : ""}`}
               onClick={() => this.toggleSignup()}>
               <h2>SIGN UP</h2>
             </button>
           ) : (
-            <SignupForm />
-          )}
-          <LoginForm />
+              <SignupForm />
+            )}
+          {!this.state.activeLogin ? (
+            <button
+              type="button"
+              className={`standardButton ${this.state.activeSignup ? 'greyedButton' : ""}`}
+              onClick={() => this.toggleLogin()}>
+              <h2>LOG IN</h2>
+            </button>
+          ) : (
+              <LoginForm />
+            )}
         </div>
       </div>
     );
