@@ -5,11 +5,11 @@ This is the client/frontend. The server/backend can be found [here](https://gith
 
 ## Screenshots
 
-![Front Page](./assets/frontpage.png "Front Page")
+![Front Page](./src/assets/frontpage.png "Front Page")
 
-![Workout Details Page](./assets/workout-details.png "Workout details")
+![Workout Details Page](./src/assets/workout-details.png "Workout details")
 
-![Add Workout Page](./assets/add-workout.png "Add Workout Page")
+![Add Workout Page](./src/assets/add-workout.png "Add Workout Page")
 
 ## Getting started
 
