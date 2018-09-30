@@ -18,12 +18,12 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit = e => {
-    let test = this.state.username + ":" + btoa(this.state.password);
+    let test = btoa(this.state.username + ":" + this.state.password);
     console.log("test: ", test);
     e.preventDefault();
-    fetch("http://localhost:3001/signin", {
+    fetch("http://localhost:3001/trainer/signin", {
       headers: new Headers({
-        'Authorization': + test,
+        'Authorization': 'Basic ' + test,
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     });
