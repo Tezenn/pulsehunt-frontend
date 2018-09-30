@@ -12,8 +12,11 @@ import AddEpisode from './containers/AddEpisode';
 
 import './index.css';
 
-let store = createStore(reducers, loadState(), window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(
+  reducers,
+  loadState(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe(() => {
   saveState(store.getState());
@@ -31,7 +34,7 @@ ReactDOM.render(
         </div>
       </BrowserRouter>
     </React.Fragment>
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
 
