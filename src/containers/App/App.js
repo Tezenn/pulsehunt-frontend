@@ -10,9 +10,10 @@ import LoginSignupPage from "../../containers/LoginSignupPage/LognSignupPage";
 class App extends Component {
   constructor(props) {
     super(props);
-    fetch("http://localhost:3001")
-      .then(res => res.json())
-      .then(res => console.log(res));
+    fetch("http://localhost:3001").then(res => {
+      console.log(res);
+      return res;
+    })
   }
   state = {};
   render() {
@@ -26,8 +27,8 @@ class App extends Component {
                 <NavBar /> <Route exact path="/" component={MapView} />
               </div>
             ) : (
-              <Route exact path="/" component={LoginSignupPage} />
-            )}
+                <Route exact path="/" component={LoginSignupPage} />
+              )}
 
             <Route path="/episode/:id" component={MapView} />
             <Route path="/add" component={AddEpisode} />

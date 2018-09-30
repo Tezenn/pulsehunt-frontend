@@ -11,9 +11,9 @@ class SignupForm extends React.Component {
     let test = this.state.username + ":" + this.state.password;
     console.log("test: ", test);
     e.preventDefault();
-    fetch("http://localhost:3001/signin", {
+    fetch("http://localhost:3001/trainer", {
       headers: new Headers({
-        'Authorization': + btoa(test),
+        'Authorization': 'Basic ' + btoa(test),
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     });
