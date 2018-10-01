@@ -3,25 +3,40 @@ import { Field, Fields, reduxForm } from "redux-form";
 import "../../styles.css";
 
 class SignupForm extends React.Component {
+  state = {
+    isTrainer: false
+  }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
-    let test = this.state.username + ":" + this.state.password;
-    console.log("test: ", test);
     e.preventDefault();
     fetch("http://localhost:3001/trainer", {
+      method: 'POST',
+      body: JSON.stringify(this.state),
       headers: new Headers({
-        'Authorization': 'Basic ' + btoa(test),
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       })
-    });
+    })
+      .then(res => res).then(res => console.log(res));
   };
+
 
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="loginOrSignupForm">
+        <div className="form-group">
+          <label htmlFor="Name">Your name:</label>
+          <input
+            onChange={this.handleChange}
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -29,6 +44,16 @@ class SignupForm extends React.Component {
             name="username"
             type="text"
             placeholder="Your username"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="E-mail">E-mail:</label>
+          <input
+            onChange={this.handleChange}
+            name="email"
+            type="text"
+            placeholder="Your e-mail"
             required
           />
         </div>
@@ -42,8 +67,15 @@ class SignupForm extends React.Component {
             required
           />
         </div>
+        <div className='form-group'>
+          <label htmlFor='role'>Role:</label>
+          <select value={this.state.isTrainer} name='isTrainer' onChange={this.handleChange}>
+            <option value='trainer'>trainer</option>
+            <option defaultValue='user'>user</option>
+          </select>
+        </div>
         <button type="submit" className="standardButton">
-          LOG IN
+          on board!
         </button>
       </form>
     );

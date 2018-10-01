@@ -75,36 +75,36 @@ class AddEpisode extends React.Component {
             {!this.props.uploadSuccess ? (
               <AddEpisodeForm onSubmit={this.submit} />
             ) : (
-              <div>
-                Congrats! You just created a{" "}
+                <div>
+                  Congrats! You just created a
                 <Link to={`/episode/${this.props.uploadSuccess}`}>
-                  workout episode
+                    workout episode
                 </Link>
-                . Want to{" "}
+                  . Want to
                 <a onClick={this.props.createNewEpisode}>create another one</a>?
               </div>
-            )}
+              )}
           </div>
           <div className="image-part">
             <h2>Pick a picture or upload a new one</h2>
             <div className="image-grid">
               {this.props.user.photos.length
                 ? this.props.user.photos.map(photo => {
-                    return (
-                      <img
-                        onClick={this.togglePic}
-                        alt="Descriptive text"
-                        id={photo}
-                        key={photo}
-                        className={
-                          this.props.pickedPhoto === photo
-                            ? "image-item picked"
-                            : "image-item"
-                        }
-                        src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
-                      />
-                    );
-                  })
+                  return (
+                    <img
+                      onClick={this.togglePic}
+                      alt="Descriptive text"
+                      id={photo}
+                      key={photo}
+                      className={
+                        this.props.pickedPhoto === photo
+                          ? "image-item picked"
+                          : "image-item"
+                      }
+                      src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
+                    />
+                  );
+                })
                 : "No images uploaded yet!"}
             </div>
             <Dropzone

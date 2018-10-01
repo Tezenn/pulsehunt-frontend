@@ -2,6 +2,8 @@ import React, { Component } from "react";
 /* import { Field, Fields, reduxForm } from "redux-form"; */
 import "../../styles.css";
 import btoa from 'btoa'
+import { connect } from 'react-redux'
+import { setLoggedInUser } from "../../actions";
 
 
 class LoginForm extends React.Component {
@@ -26,7 +28,8 @@ class LoginForm extends React.Component {
         'Authorization': 'Basic ' + test,
         'Content-Type': 'application/x-www-form-urlencoded'
       })
-    });
+    }).then(res => res.json())
+      .then(res => this.props.setLoggedInUser(res))
   };
 
   render() {

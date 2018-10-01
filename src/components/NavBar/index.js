@@ -15,15 +15,18 @@ const NavBar = props => {
       <div className="nav-area">
         <div className="nav-area--links">
           {props.signedInUser.name !== "" &&
-          props.signedInUser.type === "trainer" ? (
-            <Link to="/add">
-              <button className="navbar-button">ADD WORKOUT</button>
-            </Link>
-          ) : props.signedInUser.name !== "" ? (
-            <Link to="/schedule">
-              <button className="navbar-button">MY SCHEDULE</button>
-            </Link>
-          ) : null}
+            props.signedInUser.type === "trainer" ? (
+              <div><Link to="/add">
+                <button className="navbar-button">ADD WORKOUT</button>
+              </Link>
+                <Link to="/add">
+                  <button className="navbar-button">MY CALENDAR</button>
+                </Link></div>
+            ) : props.signedInUser.name !== "" ? (
+              <Link to="/schedule">
+                <button className="navbar-button">MY SCHEDULE</button>
+              </Link>
+            ) : null}
         </div>
       </div>
     </div>

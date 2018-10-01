@@ -64,7 +64,7 @@ const app = (state = defaultState.app, action) => {
   }
 };
 
-let defaultLocation = navigator.geolocation.getCurrentPosition(function(
+let defaultLocation = navigator.geolocation.getCurrentPosition(function (
   position
 ) {
   () => position.coords.latitude, position.coords.longitude;
@@ -109,8 +109,8 @@ const user = (state = defaultState.user, action) => {
   switch (action.type) {
     case "UPLOADED_PHOTO_SUCCESS":
       return { ...state, photos: [...action.photos] };
-    case "SET_LOGGED_IN_TRAINER":
-      return { ...state, ...action.trainer };
+    case "SET_LOGGED_IN_USER":
+      return { ...state, ...action.user };
     default:
       return state;
   }

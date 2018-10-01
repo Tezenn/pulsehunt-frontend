@@ -4,6 +4,8 @@ import "../../styles.css";
 import SignupForm from "../../components/SignupForm/SignupForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import Logo from "../../assets/logo.png";
+import { connect } from "react-redux"
+import { setLoggedInUser } from '../../actions'
 
 class LoginSignupPage extends Component {
   state = {
@@ -52,7 +54,7 @@ class LoginSignupPage extends Component {
               <h2>LOG IN</h2>
             </button>
           ) : (
-              <LoginForm />
+              <LoginForm setLoggedInUser={this.props.setLoggedInUser} />
             )}
         </div>
       </div>
@@ -60,4 +62,12 @@ class LoginSignupPage extends Component {
   }
 }
 
-export default LoginSignupPage;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  setLoggedInUser: user => dispatch(setLoggedInUser(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSignupPage);

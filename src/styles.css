@@ -553,8 +553,6 @@ input:-webkit-autofill {
 
 .loginOrSignupForm {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
 }
-
-.loginOrSignupForm h2 {}
