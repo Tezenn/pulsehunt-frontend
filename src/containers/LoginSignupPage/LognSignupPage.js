@@ -6,6 +6,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import Logo from "../../assets/logo.png";
 import { connect } from "react-redux"
 import { setLoggedInUser } from '../../actions'
+import { Link } from 'react-router-dom'
 
 class LoginSignupPage extends Component {
   state = {
@@ -13,10 +14,7 @@ class LoginSignupPage extends Component {
     activeLogin: false
   };
 
-  onLoginSubmit(e) {
-    e.preventDefault();
 
-  }
 
   toggleSignup() {
     this.setState({
@@ -34,7 +32,9 @@ class LoginSignupPage extends Component {
   render() {
     return (
       <div className="loginContainer">
-        <img src={Logo} className="formLogo" alt="pulse hunt logo" />
+        <a href='http://localhost:3000'>
+          <img src={Logo} className="formLogo" alt="pulse hunt logo" />
+        </a>
         <div className="formContainer">
           {!this.state.activeSignup ? (
             <button

@@ -5,6 +5,7 @@ import "../../styles.css";
 class SignupForm extends React.Component {
   state = {
     isTrainer: 'user'
+
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
