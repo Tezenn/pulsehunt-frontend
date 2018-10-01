@@ -9,7 +9,6 @@ class Map extends React.Component {
   };
 
   boundMarker = id => () => {
-    console.log(id);
   };
 
   mapMarkers = episode => {

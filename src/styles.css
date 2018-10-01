@@ -361,7 +361,20 @@ button[type="submit"] {
 }
 
 .map-container {
-  flex: 1;
+  display: flex;
+  flex: 1; 
+  width: 100%;
+}
+
+.filterAndMap {
+  display: flex;
+  flex-flow: row wrap
+}
+
+.mapInside {
+  height: 500px;
+  width: 500px;
+  display: flex
 }
 
 .navbar-container {
@@ -375,11 +388,15 @@ button[type="submit"] {
 
 .nav-area {
   display: flex;
+  flex-flow: row wrap;
+  color: black;
+  align-items: center
 }
 
 .nav-area--links {
   margin-right: 20px;
-  display: flex;
+  margin-left: 20px;
+  
 }
 
 .navbar-button {
@@ -387,7 +404,13 @@ button[type="submit"] {
   padding: 16px;
   border: none;
   margin-right: 20px;
-  width: 100px;
+  width: auto;
+  min-width: 120px;
+  align-items: center
+}
+
+.navbar-button:hover {
+
 }
 
 .logo-area,
@@ -474,7 +497,7 @@ button[type="submit"] {
 .mapview-container {
   display: flex;
   height: 100%;
-  flex: 1;
+  flex-flow: row wrap;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
