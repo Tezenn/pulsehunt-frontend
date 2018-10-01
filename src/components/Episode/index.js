@@ -44,15 +44,15 @@ class Episode extends React.Component {
       } = this.props.singleEpisode;
       const styles = photo
         ? {
-            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo})`,
-            backgroundSize: "cover"
-          }
+          backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo})`,
+          backgroundSize: "cover"
+        }
         : { backgroundColor: "black" };
       return (
         <div className="episode-container">
           <header className="episode-header" style={styles}>
             <div className="close-episode-card">
-              <Link to="/">CLOSE</Link>
+              <Link to="/mapview">CLOSE</Link>
             </div>
             <h1>{name}</h1>
             <p className="trainer">{trainer.name}</p>

@@ -17,16 +17,15 @@ class MapView extends React.Component {
     return (
       <div><NavBar />
         <div className="mapview-container">
-
           <div className='filterAndMap'>
             <Dashboard />
             <Route
               exact
-              path="/"
+              path="/mapview"
               render={props => (
                 <Map
                   containerElement={<div className="map-container" />}
-                  mapElement={<div style={{ height: `500px`, width: `100%` }} />}
+                  mapElement={<div style={{ height: `100%`, minWidth: `100%` }} />}
                 />
               )}
             />
