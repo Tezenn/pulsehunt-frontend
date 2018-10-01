@@ -20,12 +20,12 @@ class MapView extends React.Component {
             <Dashboard />
             <Route
               exact
-              path="/"
+              path="/mapview"
               render={props => (
                 <Map
                   containerElement={<div className="map-container" />}
                   mapElement={
-                    <div style={{ height: `500px`, width: `100%` }} />
+                    <div style={{ height: `100%`, minWidth: `100%` }} />
                   }
                 />
               )}
