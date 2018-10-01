@@ -4,7 +4,7 @@ import "../../styles.css";
 
 class SignupForm extends React.Component {
   state = {
-    isTrainer: false
+    isTrainer: 'user'
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="loginOrSignupForm">
         <div className="form-group">
-          <label htmlFor="Name">Your name:</label>
+          <label htmlFor="name">Your name:</label>
           <input
             onChange={this.handleChange}
             name="name"
@@ -48,7 +48,7 @@ class SignupForm extends React.Component {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="E-mail">E-mail:</label>
+          <label htmlFor="email">E-mail:</label>
           <input
             onChange={this.handleChange}
             name="email"
