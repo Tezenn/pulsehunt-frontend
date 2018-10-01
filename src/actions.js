@@ -1,37 +1,37 @@
 export const changeCoords = (latitude, longitude) => ({
-  type: "CHANGE_COORDS",
+  type: 'CHANGE_COORDS',
   latitude,
   longitude
 });
 
 export const episodesFetchSuccess = episodes => ({
-  type: "EPISODES_FETCH_SUCCESS",
+  type: 'EPISODES_FETCH_SUCCESS',
   episodes
 });
 
 export const episodeFetchSuccess = episode => ({
-  type: "EPISODE_FETCH_SUCCESS",
+  type: 'EPISODE_FETCH_SUCCESS',
   episode
 });
 
 export const changeAddress = address => ({
-  type: "CHANGE_ADDRESS",
+  type: 'CHANGE_ADDRESS',
   address
 });
 
 export const changeDateTimeInterval = (start, end) => ({
-  type: "CHANGE_DATETIME_INTERVAL",
+  type: 'CHANGE_DATETIME_INTERVAL',
   start,
   end
 });
 
 export const uploadedPhotoSuccess = photos => ({
-  type: "UPLOADED_PHOTO_SUCCESS",
+  type: 'UPLOADED_PHOTO_SUCCESS',
   photos
 });
 
 export const pickEpisodePhoto = photoId => ({
-  type: "PICK_EPISODE_PHOTO",
+  type: 'PICK_EPISODE_PHOTO',
   photoId
 });
 
@@ -41,15 +41,19 @@ export const pickEpisodePhoto = photoId => ({
 }); */
 
 export const setLoggedInUser = user => ({
-  type: "SET_LOGGED_IN_USER",
+  type: 'SET_LOGGED_IN_USER',
   user
 });
 
 export const createEpisodeSuccess = episodeId => ({
-  type: "CREATE_EPISODE_SUCCESS",
+  type: 'CREATE_EPISODE_SUCCESS',
   episodeId
 });
 
 export const createNewEpisode = () => ({
-  type: "CREATE_NEW_EPISODE"
+  type: 'CREATE_NEW_EPISODE'
+});
+
+export const authenticateUser = () => ({
+  type: 'AUTHENTICATE_USER'
 });

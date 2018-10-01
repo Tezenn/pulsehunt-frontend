@@ -1,29 +1,33 @@
-import React from "react";
-import { Field, Fields, reduxForm } from "redux-form";
-import "../../styles.css";
+import React from 'react';
+import { Field, Fields, reduxForm } from 'redux-form';
+import '../../styles.css';
 
 class SignupForm extends React.Component {
   state = {
     isTrainer: 'user'
-
-  }
+  };
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    fetch("http://localhost:3001/trainer", {
+    fetch('http://localhost:3001/trainer', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: new Headers({
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       })
     })
-      .then(res => res).then(res => console.log(res));
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        if (res.auth_token) {
+          this.props.authenticateUser();
+        }
+      });
   };
-
 
   render() {
     return (
@@ -68,11 +72,15 @@ class SignupForm extends React.Component {
             required
           />
         </div>
-        <div className='form-group'>
-          <label htmlFor='role'>Role:</label>
-          <select value={this.state.isTrainer} name='isTrainer' onChange={this.handleChange}>
-            <option value='trainer'>trainer</option>
-            <option defaultValue='user'>user</option>
+        <div className="form-group">
+          <label htmlFor="role">Role:</label>
+          <select
+            value={this.state.isTrainer}
+            name="isTrainer"
+            onChange={this.handleChange}
+          >
+            <option value="trainer">trainer</option>
+            <option defaultValue="user">user</option>
           </select>
         </div>
         <button type="submit" className="standardButton">

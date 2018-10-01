@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 /* import { Field, Fields, reduxForm } from "redux-form"; */
-import "../../styles.css";
-import btoa from 'btoa'
-import { connect } from 'react-redux'
-import { setLoggedInUser } from "../../actions";
-
+import '../../styles.css';
+import btoa from 'btoa';
+import { connect } from 'react-redux';
+import { setLoggedInUser } from '../../actions';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     };
   }
 
@@ -20,16 +19,22 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit = e => {
-    let test = btoa(this.state.username + ":" + this.state.password);
-    console.log("test: ", test);
+    let test = btoa(this.state.username + ':' + this.state.password);
+    console.log('test: ', test);
     e.preventDefault();
-    fetch("http://localhost:3001/trainer/signin", {
+    fetch('http://localhost:3001/trainer/signin', {
       headers: new Headers({
-        'Authorization': 'Basic ' + test,
+        Authorization: 'Basic ' + test,
         'Content-Type': 'application/x-www-form-urlencoded'
       })
-    }).then(res => res.json())
-      .then(res => this.props.setLoggedInUser(res))
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log('RES FROM LOGIN ', res);
+        if (res.auth_token) {
+          this.props.authenticateUser();
+        }
+      });
   };
 
   render() {
@@ -55,7 +60,11 @@ class LoginForm extends React.Component {
             required
           />
         </div>
-        <button type="submit" onSubmit={() => this.handleSubmit} className="standardButton">
+        <button
+          type="submit"
+          onSubmit={() => this.handleSubmit}
+          className="standardButton"
+        >
           LOG IN
         </button>
       </form>

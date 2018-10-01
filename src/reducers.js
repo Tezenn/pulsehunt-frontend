@@ -1,11 +1,11 @@
-import { combineReducers } from "redux";
-import { reducer as formReducer } from "redux-form";
-import moment from "moment";
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import moment from 'moment';
 
 const defaultState = {
   app: {
     addEpisode: {
-      pickedPhoto: "",
+      pickedPhoto: '',
       uploadSuccess: false
     }
   },
@@ -19,8 +19,8 @@ const defaultState = {
       // Provides events now, and one week ahead.
       start: Date.now(),
       end: moment(Date.now())
-        .add(7, "days")
-        .format("x")
+        .add(7, 'days')
+        .format('x')
     }
   },
   episodes: {
@@ -28,31 +28,31 @@ const defaultState = {
     singleEpisode: {}
   },
   user: {
-    _id: "",
-    name: "",
-    bio: "",
+    _id: '',
+    name: '',
+    bio: '',
     photos: [],
-    type: ""
+    type: ''
   }
 };
 
 const app = (state = defaultState.app, action) => {
   switch (action.type) {
-    case "PICK_EPISODE_PHOTO":
+    case 'PICK_EPISODE_PHOTO':
       return {
         ...state,
         addEpisode: {
           pickedPhoto: action.photoId
         }
       };
-    case "CREATE_EPISODE_SUCCESS":
+    case 'CREATE_EPISODE_SUCCESS':
       return {
         ...state,
         addEpisode: {
           uploadSuccess: action.episodeId
         }
       };
-    case "CREATE_NEW_EPISODE":
+    case 'CREATE_NEW_EPISODE':
       return {
         ...state,
         addEpisode: {
@@ -64,7 +64,7 @@ const app = (state = defaultState.app, action) => {
   }
 };
 
-let defaultLocation = navigator.geolocation.getCurrentPosition(function (
+let defaultLocation = navigator.geolocation.getCurrentPosition(function(
   position
 ) {
   () => position.coords.latitude, position.coords.longitude;
@@ -72,22 +72,22 @@ let defaultLocation = navigator.geolocation.getCurrentPosition(function (
 
 const filter = (state = defaultState.filter, action) => {
   switch (action.type) {
-    case "CHANGE_COORDS":
+    case 'CHANGE_COORDS':
       return {
         ...state,
         location: {
           ...state.location,
           latitude: action.latitude,
           longitude: action.longitude,
-          address: ""
+          address: ''
         }
       };
-    case "CHANGE_ADDRESS":
+    case 'CHANGE_ADDRESS':
       return {
         ...state,
         location: { ...state.location, address: action.address }
       };
-    case "CHANGE_DATETIME_INTERVAL":
+    case 'CHANGE_DATETIME_INTERVAL':
       return { ...state, date: { start: action.start, end: action.end } };
     default:
       return state;
@@ -96,9 +96,9 @@ const filter = (state = defaultState.filter, action) => {
 
 const episodes = (state = defaultState.episodes, action) => {
   switch (action.type) {
-    case "EPISODES_FETCH_SUCCESS":
+    case 'EPISODES_FETCH_SUCCESS':
       return { ...state, filtered: [...action.episodes] };
-    case "EPISODE_FETCH_SUCCESS":
+    case 'EPISODE_FETCH_SUCCESS':
       return { ...state, singleEpisode: { ...action.episode } };
     default:
       return state;
@@ -107,10 +107,12 @@ const episodes = (state = defaultState.episodes, action) => {
 
 const user = (state = defaultState.user, action) => {
   switch (action.type) {
-    case "UPLOADED_PHOTO_SUCCESS":
+    case 'UPLOADED_PHOTO_SUCCESS':
       return { ...state, photos: [...action.photos] };
-    case "SET_LOGGED_IN_USER":
+    case 'SET_LOGGED_IN_USER':
       return { ...state, ...action.user };
+    case 'AUTHENTICATE_USER':
+      return { ...state, authenticated: true };
     default:
       return state;
   }
