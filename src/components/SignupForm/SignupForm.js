@@ -14,7 +14,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     fetch('http://localhost:3001/trainer', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({ ...this.state, episodes: [] }),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json'

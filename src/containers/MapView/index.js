@@ -9,17 +9,17 @@ import Map from '../../components/Map';
 import Episode from '../../components/Episode';
 import NavBar from '../../components/NavBar';
 import '../../styles.css';
-import Popup from "reactjs-popup";
-
+import Popup from 'reactjs-popup';
 
 class MapView extends React.Component {
   render() {
     console.log(this.props.user);
     return (
-      <div> <NavBar signedInUser={this.props.user}></NavBar>
+      <div>
+        {' '}
+        <NavBar signedInUser={this.props.user} />
         <div className="mapview-container">
           <div className="filterAndMap">
-
             <Dashboard />
             <Route
               path="/"

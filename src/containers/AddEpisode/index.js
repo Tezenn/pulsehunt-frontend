@@ -1,24 +1,24 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   uploadedPhotoSuccess,
   pickEpisodePhoto,
   createEpisodeSuccess,
   createNewEpisode
-} from "../../actions";
-import Dropzone from "react-dropzone";
-import AddEpisodeForm from "../../components/AddEpisodeForm";
-import "../../styles.css";
+} from '../../actions';
+import Dropzone from 'react-dropzone';
+import AddEpisodeForm from '../../components/AddEpisodeForm';
+import '../../styles.css';
 
 class AddEpisode extends React.Component {
   onDrop = (acceptedFiles, rejectedFiles) => {
     const data = new FormData();
-    data.append("photo", acceptedFiles[0]);
-    data.append("trainer", "5adc8d0e3f2dcd259ad50d67");
+    data.append('photo', acceptedFiles[0]);
+    data.append('trainer', '5adc8d0e3f2dcd259ad50d67');
 
-    fetch("http://localhost:3001/upload", {
-      method: "POST",
+    fetch('http://localhost:3001/upload', {
+      method: 'POST',
       body: data
     })
       .then(res => res.json())
@@ -42,7 +42,7 @@ class AddEpisode extends React.Component {
     const payload = {
       name: values.name,
       description: values.description,
-      trainer: this.props.user._id,
+      trainer: this.props.user,
       startTime,
       endTime,
       location: {
@@ -50,15 +50,15 @@ class AddEpisode extends React.Component {
         coordinates: [values.location.longitude, values.location.latitude]
       },
       sweatScore: Number(values.sweatScore),
-      tags: values.tags.split(","),
-      photo: this.props.pickedPhoto || ""
+      tags: values.tags.split(','),
+      photo: this.props.pickedPhoto || ''
     };
 
-    fetch("http://localhost:3001/episode", {
-      method: "POST",
+    fetch('http://localhost:3001/episode', {
+      method: 'POST',
       body: JSON.stringify(payload),
       headers: {
-        "content-type": "application/json"
+        'content-type': 'application/json'
       }
     })
       .then(res => res.json())
@@ -75,43 +75,44 @@ class AddEpisode extends React.Component {
             {!this.props.uploadSuccess ? (
               <AddEpisodeForm onSubmit={this.submit} />
             ) : (
-                <div>
-                  Congrats! You just created a
+              <div>
+                Congrats! You just created a
                 <Link to={`/episode/${this.props.uploadSuccess}`}>
-                    workout episode
+                  workout episode
                 </Link>
-                  . Want to
+                . Want to
                 <a onClick={this.props.createNewEpisode}>create another one</a>?
               </div>
-              )}
+            )}
           </div>
           <div className="image-part">
             <h2>Pick a picture or upload a new one</h2>
             <div className="image-grid">
               {this.props.user.photos.length
                 ? this.props.user.photos.map(photo => {
-                  return (
-                    <img
-                      onClick={this.togglePic}
-                      alt="Descriptive text"
-                      id={photo}
-                      key={photo}
-                      className={
-                        this.props.pickedPhoto === photo
-                          ? "image-item picked"
-                          : "image-item"
-                      }
-                      src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
-                    />
-                  );
-                })
-                : "No images uploaded yet!"}
+                    return (
+                      <img
+                        onClick={this.togglePic}
+                        alt="Descriptive text"
+                        id={photo}
+                        key={photo}
+                        className={
+                          this.props.pickedPhoto === photo
+                            ? 'image-item picked'
+                            : 'image-item'
+                        }
+                        src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
+                      />
+                    );
+                  })
+                : 'No images uploaded yet!'}
             </div>
             <Dropzone
               onDrop={files => this.onDrop(files)}
               multiple={false}
               className="dropzone"
-              activeStyle={{ backgroundColor: "green" }}>
+              activeStyle={{ backgroundColor: 'green' }}
+            >
               <div>
                 CLICK AND SELECT
                 <br />
