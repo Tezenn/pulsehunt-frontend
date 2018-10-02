@@ -57,3 +57,6 @@ export const createNewEpisode = () => ({
 export const authenticateUser = () => ({
   type: 'AUTHENTICATE_USER'
 });
+export const deAuthenticateUser = () => ({
+  type: 'DEAUTHENTICATE_USER'
+});

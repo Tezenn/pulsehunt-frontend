@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { authenticateUser } from '../../actions';
+import { authenticateUser, deAuthenticateUser } from '../../actions';
 
 import NavBar from '../../components/NavBar/index';
 import MapView from '../../containers/MapView/index';
@@ -11,16 +11,19 @@ import LoginSignupPage from '../../containers/LoginSignupPage/LognSignupPage';
 class App extends Component {
   constructor(props) {
     super(props);
+    console.log('props from constructor: ', props);
     this.token = this.props.user.auth_token;
     if (this.token) {
       console.log('*****************');
       fetch('http://localhost:3001', {
         headers: { Authorization: 'Bearer ' + this.token }
       }).then(res => {
-        if (res.status === 401) return;
+        if (res.status === 401) this.props.deAuthenticateUser();
         res = res.json();
         this.props.authenticateUser();
       });
+    } else {
+      this.props.deAuthenticateUser();
     }
   }
   state = {};
@@ -47,7 +50,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  authenticateUser: () => dispatch(authenticateUser())
+  authenticateUser: () => dispatch(authenticateUser()),
+  deAuthenticateUser: () => dispatch(deAuthenticateUser())
 });
 export default connect(
   mapStateToProps,

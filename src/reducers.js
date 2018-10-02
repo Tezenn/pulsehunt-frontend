@@ -113,6 +113,8 @@ const user = (state = defaultState.user, action) => {
       return { ...state, ...action.user };
     case 'AUTHENTICATE_USER':
       return { ...state, authenticated: true };
+    case 'DEAUTHENTICATE_USER':
+      return { ...state, authenticated: false };
     default:
       return state;
   }

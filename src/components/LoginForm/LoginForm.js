@@ -32,6 +32,7 @@ class LoginForm extends React.Component {
       .then(res => {
         console.log('RES FROM LOGIN ', res);
         if (res.auth_token) {
+          this.props.setLoggedInUser(res);
           this.props.authenticateUser();
         }
       });
