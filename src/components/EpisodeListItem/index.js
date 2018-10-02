@@ -2,11 +2,22 @@ import React from "react";
 import "../../styles.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import Popup from "reactjs-popup"
+import Episode from "../Episode";
 
 export default class EpisodeListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.activeButton = false;
+    this.toggleActive = () => {
+      this.activeButton = !this.activeButton
+    }
+
+  }
   render() {
     const { _id, name, trainer, startTime, endTime, photo } = this.props.data;
-    const dateTimeFormat = "YYYY-MM-DD HH:mm";
+    console.log(this.props.data);
+    const dateTimeFormat = " DD/MM/YYYY HH:mm";
     return (
       <article className="episode-list-item-container">
         <div className="episode-image">
@@ -26,12 +37,16 @@ export default class EpisodeListItem extends React.Component {
           <div>
             <strong>By</strong> {trainer.name}
           </div>
-          <div>
-            <strong>START:</strong> {moment(startTime).format(dateTimeFormat)}
+          <div className='eventDates'>
+            <div className='eventDate'>
+              <strong>Starting:</strong> <span>{moment(startTime).format(dateTimeFormat)}</span>
+            </div>
+            <div className='eventDate'>
+              <strong>Ending:</strong> <span>{moment(endTime).format(dateTimeFormat)}</span>
+            </div>
           </div>
-          <div>
-            <strong>END:</strong> {moment(endTime).format(dateTimeFormat)}
-          </div>
+          <Popup trigger={<button className='episode-list-item--button'>Have a look</button>} position="center" ></Popup>
+
         </div>
       </article>
     );

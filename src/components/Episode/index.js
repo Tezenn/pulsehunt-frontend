@@ -52,7 +52,7 @@ class Episode extends React.Component {
         <div className="episode-container">
           <header className="episode-header" style={styles}>
             <div className="close-episode-card">
-              <Link to="/mapview">CLOSE</Link>
+              <Link to="/">CLOSE</Link>
             </div>
             <h1>{name}</h1>
             <p className="trainer">{trainer.name}</p>
