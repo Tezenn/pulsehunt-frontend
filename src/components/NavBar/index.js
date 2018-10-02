@@ -14,7 +14,7 @@ const NavBar = props => {
       </div>
       <div className="nav-area">
         <div className="nav-area--text">
-          {props.signedInUser.name !== '' ? `Hello, ${props.signedInUser.name}!` : Error("WTF")}
+          {`Hello, ${props.signedInUser.name}!`}
         </div>
         <div className="nav-area--links">
           {props.signedInUser.name !== "" &&
