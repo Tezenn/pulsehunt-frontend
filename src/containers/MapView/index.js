@@ -33,8 +33,8 @@ class MapView extends React.Component {
               )}
             />
           </div>
-          <EpisodeList />
           <Route path="/episode/:id" component={Episode} />
+          <EpisodeList />
         </div>
       </div>
     );

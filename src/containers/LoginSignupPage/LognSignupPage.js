@@ -46,7 +46,10 @@ class LoginSignupPage extends Component {
               <h2>SIGN UP</h2>
             </button>
           ) : (
-            <SignupForm authenticateUser={this.props.authenticateUser} />
+            <SignupForm
+              authenticateUser={this.props.authenticateUser}
+              setLoggedInUser={this.props.setLoggedInUser}
+            />
           )}
           {!this.state.activeLogin ? (
             <button
