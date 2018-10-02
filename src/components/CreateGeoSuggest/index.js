@@ -1,8 +1,10 @@
 import React from "react";
 import Geosuggest from "react-geosuggest";
 import "../../styles.css";
+import { withScriptjs } from 'react-google-maps'
+import { API_KEY } from '../../config'
 
-export default class CreateGeoSuggest extends React.Component {
+class CreateGeoSuggest extends React.Component {
   render() {
     const { input, name, placeholder } = this.props.location.address;
     return (
@@ -24,3 +26,14 @@ export default class CreateGeoSuggest extends React.Component {
     );
   }
 }
+const GeoSuggestion = withScriptjs(CreateGeoSuggest);
+
+export default function GeoSuggestionCreation(props) {
+  return (
+    <GeoSuggestion
+      googleMapURL={API_KEY}
+      loadingElement={<div>ciao</div>}
+      {...props}
+    />
+  )
+} 

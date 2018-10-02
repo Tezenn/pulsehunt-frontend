@@ -2,6 +2,7 @@ import React from "react";
 import { Field, Fields, reduxForm } from "redux-form";
 import CreateGeoSuggest from "../CreateGeoSuggest";
 import "../../styles.css";
+import NavBar from '../NavBar'
 
 let AddEpisodeForm = props => {
   console.log(props);

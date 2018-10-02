@@ -8,7 +8,6 @@ class EpisodeList extends React.Component {
   render() {
     return (
       <div className="episodelist-container">
-        <div className='episodelist-sorter'><ListSort /></div>
         <div className='episodelist-list'>
 
           {this.props.episodes.filtered &&

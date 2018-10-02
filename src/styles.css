@@ -11,7 +11,9 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .form-group input,
@@ -91,7 +93,6 @@ button[type="submit"] {
   display: flex;
   flex-direction: column;
   margin: 5px;
-  border: 1px solid black;
   background: rgba(0,0,0, 0.05)
 }
 
@@ -235,13 +236,13 @@ button[type="submit"] {
   justify-content: center;
 }
 
-/* .attend-button {
+.attend-button {
   font-size: 1.2rem;
   padding: 12px 20px;
   border: none;
   background-color: var(--pine);
   color: white;
-} */
+}
 
 .episodelist-container {
 width: 100%
@@ -251,14 +252,15 @@ width: 100%
   width: 100%;
   background-color: white;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: row nowrap;
+  overflow-x: scroll;
 }
 
 .episode-list-item-container {
   background-color: rgb(248, 248, 248);
   margin-bottom: 10px;
   margin: 10px;
-  width: calc(50% - 30px);
+  width: calc(33% - 20px);
   border-left: 5px solid var(--blue-sky);
   padding: 5px 20px;
   text-align: center
@@ -341,11 +343,11 @@ width: 100%
 }
 
 .geosuggest__suggests {
-  position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   max-height: 25em;
+  min-height: 30px;
   padding: 0;
   margin-top: -1px;
   background: #fff;
@@ -395,11 +397,13 @@ width: 100%
 
 .geosuggest__item__matched-text {
   font-weight: bold;
+  width: 100%;
 }
 
 .map-container {
   height: auto;
   width: 100%;
+  line-height: auto
 }
 
 .filterAndMap {
@@ -479,6 +483,7 @@ width: 100%
 
 .add-episode-content {
   display: flex;
+  flex-flow: row wrap;
 }
 
 .form-part {
@@ -512,12 +517,13 @@ width: 100%
   width: 100%;
   border: 2px dashed #ccc;
   border-radius: 5px;
-  padding: 50px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   font-size: 1.2rem;
+  cursor: pointer
 }
 
 .container {
@@ -622,6 +628,32 @@ input:-webkit-autofill {
 @media screen and (max-width: 800px) {
   .episode-list-item-container {
     width: 100%;
+    flex-wrap: wrap
+  }
+  .episodelist-list {
+    flex-flow: column wrap;
+  }
+  .navbar-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center
+  }
+  .nav-area {
+    flex-flow: column wrap;
+  }
+  .nav-area--links div {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-area--links div a button  {
+    width: 60vw;
+    margin: 3px 0;
+    cursor: pointer
+
   }
 }
 

@@ -10,6 +10,7 @@ import {
 import Dropzone from "react-dropzone";
 import AddEpisodeForm from "../../components/AddEpisodeForm";
 import "../../styles.css";
+import NavBar from '../../components/NavBar'
 
 class AddEpisode extends React.Component {
   onDrop = (acceptedFiles, rejectedFiles) => {
@@ -68,12 +69,16 @@ class AddEpisode extends React.Component {
 
   render() {
     return (
-      <div className="add-episode-container">
+      <div>
+        <NavBar />
         <div className="add-episode-content">
           <div className="form-part">
             <h2>Workout Details</h2>
             {!this.props.uploadSuccess ? (
-              <AddEpisodeForm onSubmit={this.submit} />
+
+
+              <AddEpisodeForm onSubmit={this.submit}
+              />
             ) : (
                 <div>
                   Congrats! You just created a
@@ -81,7 +86,7 @@ class AddEpisode extends React.Component {
                     workout episode
                 </Link>
                   . Want to
-                <a onClick={this.props.createNewEpisode}>create another one</a>?
+                <a onClick={this.props.createNewEpisode}> create another one</a>?
               </div>
               )}
           </div>

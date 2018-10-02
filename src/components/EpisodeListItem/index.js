@@ -45,7 +45,7 @@ export default class EpisodeListItem extends React.Component {
               <strong>Ending:</strong> <span>{moment(endTime).format(dateTimeFormat)}</span>
             </div>
           </div>
-          <Popup trigger={<button className='episode-list-item--button'>Have a look</button>} position="center" ></Popup>
+          <Popup trigger={<button className='episode-list-item--button'>Have a look</button>} ></Popup>
 
         </div>
       </article>

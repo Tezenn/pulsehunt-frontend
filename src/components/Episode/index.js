@@ -30,6 +30,7 @@ class Episode extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     if (!this.props.singleEpisode.name) {
       return "Loading";
     } else {
@@ -84,6 +85,7 @@ class Episode extends React.Component {
             <div className="episode-content">
               <div className="episode-desc">{description}</div>
               <div className="episode-actions">
+                {}
                 <button className="attend-button">
                   I WANT TO ATTEND THIS!
                 </button>

@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { setLoggedInUser } from '../../actions';
 import Dashboard from '../../components/Dashboard';
 import EpisodeList from '../../components/EpisodeList';
-import Map from '../../components/Map';
+import UserMapWithSettings from '../../components/Map';
 import Episode from '../../components/Episode';
 import NavBar from '../../components/NavBar';
 import '../../styles.css';
 import Popup from "reactjs-popup";
-
+import { API_KEY } from '../../config'
 
 class MapView extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class MapView extends React.Component {
             <Route
               path="/"
               render={props => (
-                <Map
+                <UserMapWithSettings
                   containerElement={<div className="map-container" />}
                   mapElement={
                     <div style={{ height: `100%`, minWidth: `100%` }} />

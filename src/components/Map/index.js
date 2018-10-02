@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { GoogleMap, withGoogleMap, Marker } from "react-google-maps";
+import { GoogleMap, withGoogleMap, Marker, withScriptjs } from "react-google-maps";
 import "../../styles.css";
+import { API_KEY } from '../../config'
 
 class Map extends React.Component {
   static defaultProps = {
@@ -48,5 +49,19 @@ const mapStateToProps = state => {
   };
 };
 
-const wrappedMap = withGoogleMap(Map);
-export default connect(mapStateToProps)(wrappedMap);
+const WrappedMap = withScriptjs(withGoogleMap(Map));
+
+function UserMapWithSettings(props) {
+  return (
+    <WrappedMap
+      googleMapURL={API_KEY}
+      loadingElement={<div>ciao</div>}
+      {...props}
+    ></WrappedMap>
+  )
+
+}
+
+export default connect(mapStateToProps)(UserMapWithSettings);
+
+
