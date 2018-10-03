@@ -21,12 +21,30 @@ class Episode extends React.Component {
   }
 
   fetchEpisode = episodeId => {
-    fetch(`http://localhost:3001/episode/${episodeId}`)
+    fetch(`http://localhost:3001/episode/${episodeId}`, {
+      headers: {
+        authorization: `Bearer ${this.props.user.token}`,
+        'content-type': 'application/json'
+      }
+    })
       .then(episode => episode.json())
       .then(episode => {
         this.props.episodeFetchSuccess(episode);
       })
       .catch(err => console.log(err));
+  };
+
+  joinEpisode = episodeId => {
+    fetch(`http://localhost:3001/trainer/${this.props.userId}`, {
+      method: 'PUT',
+      body: JSON.stringify({ episodes: this.props.match.params.id }),
+      headers: {
+        authorization: `Bearer ${this.props.user.token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
   };
 
   render() {
@@ -44,7 +62,11 @@ class Episode extends React.Component {
       } = this.props.singleEpisode;
       const styles = photo
         ? {
+<<<<<<< HEAD
             backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg)`,
+=======
+            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo})`,
+>>>>>>> feat_episodes
             backgroundSize: 'cover'
           }
         : { backgroundColor: 'black' };
@@ -84,7 +106,10 @@ class Episode extends React.Component {
             <div className="episode-content">
               <div className="episode-desc">{description}</div>
               <div className="episode-actions">
-                <button className="attend-button">
+                <button
+                  className="attend-button"
+                  onClick={() => this.joinEpisode()}
+                >
                   I WANT TO ATTEND THIS!
                 </button>
               </div>
@@ -98,7 +123,9 @@ class Episode extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    singleEpisode: state.episodes.singleEpisode
+    singleEpisode: state.episodes.singleEpisode,
+    userId: state.user._id,
+    user: state.user
   };
 };
 

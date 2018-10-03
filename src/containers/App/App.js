@@ -12,16 +12,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     console.log('props from constructor: ', props);
-    this.token = this.props.user.auth_token;
+    this.token = this.props.user.token;
     if (this.token) {
       console.log('*****************');
       fetch('http://localhost:3001', {
         headers: { Authorization: 'Bearer ' + this.token }
-      }).then(res => {
-        if (res.status === 401) this.props.deAuthenticateUser();
-        res = res.json();
-        this.props.authenticateUser();
-      });
+      })
+        .then(res => {
+          console.log('*******************', res);
+          if (res.status === 401) this.props.deAuthenticateUser();
+          //res = res.json();
+          this.props.authenticateUser();
+        })
+        .catch(err => console.log('error: ', err));
     } else {
       this.props.deAuthenticateUser();
     }

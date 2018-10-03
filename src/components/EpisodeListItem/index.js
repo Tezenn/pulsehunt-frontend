@@ -1,15 +1,29 @@
-import React from "react";
-import "../../styles.css";
-import moment from "moment";
-import { Link } from "react-router-dom";
-import Popup from "reactjs-popup"
-import Episode from "../Episode";
+import React from 'react';
+import '../../styles.css';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import Episode from '../Episode';
 
 export default class EpisodeListItem extends React.Component {
+<<<<<<< HEAD
 <<<<<<< HEAD
   render() {
     const { _id, name, trainer, startTime, endTime, photo } = this.props.data;
     const dateTimeFormat = 'YYYY-MM-DD HH:mm';
+=======
+  constructor(props) {
+    super(props);
+    this.activeButton = false;
+    this.toggleActive = () => {
+      this.activeButton = !this.activeButton;
+    };
+  }
+  render() {
+    const { _id, name, trainer, startTime, endTime, photo } = this.props.data;
+    console.log(this.props.data);
+    const dateTimeFormat = ' DD/MM/YYYY HH:mm';
+>>>>>>> feat_episodes
     return (
       <article className="episode-list-item-container">
         <div className="episode-image">
@@ -60,15 +74,26 @@ export default class EpisodeListItem extends React.Component {
 =======
             <strong>By {trainer.name} </strong>
           </div>
-          <div className='eventDates'>
-            <div className='eventDate'>
-              <strong>Starting:</strong> <span>{moment(startTime).format(dateTimeFormat)}</span>
+          <div className="eventDates">
+            <div className="eventDate">
+              <strong>Starting:</strong>{' '}
+              <span>{moment(startTime).format(dateTimeFormat)}</span>
             </div>
-            <div className='eventDate'>
-              <strong>Ending:</strong> <span>{moment(endTime).format(dateTimeFormat)}</span>
+            <div className="eventDate">
+              <strong>Ending:</strong>{' '}
+              <span>{moment(endTime).format(dateTimeFormat)}</span>
             </div>
 >>>>>>> refs/remotes/origin/development
           </div>
+<<<<<<< HEAD
+=======
+          <Popup
+            trigger={
+              <button className="episode-list-item--button">Have a look</button>
+            }
+            position="center"
+          />
+>>>>>>> feat_episodes
         </div>
       </article>
     );

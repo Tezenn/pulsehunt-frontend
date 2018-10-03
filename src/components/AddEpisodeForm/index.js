@@ -1,8 +1,7 @@
-import React from "react";
-import { Field, Fields, reduxForm } from "redux-form";
-import CreateGeoSuggest from "../CreateGeoSuggest";
-import "../../styles.css";
-import NavBar from '../NavBar'
+import React from 'react';
+import { Field, Fields, reduxForm } from 'redux-form';
+import CreateGeoSuggest from '../CreateGeoSuggest';
+import '../../styles.css';
 
 let AddEpisodeForm = props => {
   console.log(props);
@@ -23,9 +22,9 @@ let AddEpisodeForm = props => {
         <label htmlFor="address">Address (*)</label>
         <Fields
           names={[
-            "location.address",
-            "location.latitude",
-            "location.longitude"
+            'location.address',
+            'location.latitude',
+            'location.longitude'
           ]}
           component={CreateGeoSuggest}
           placeholder="Enter Location"
@@ -50,11 +49,23 @@ let AddEpisodeForm = props => {
           </div>
           <div className="form-group">
             <label htmlFor="startTime">Start (*)</label>
-            <Field name="startTime" component="input" type="time" required />
+            <Field
+              name="startTime"
+              component="input"
+              type="time"
+              pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]"
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="endTime">End (*)</label>
-            <Field name="endTime" component="input" type="time" required />
+            <Field
+              name="endTime"
+              component="input"
+              type="time"
+              pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]"
+              required
+            />
           </div>
         </div>
       </div>
@@ -80,7 +91,7 @@ let AddEpisodeForm = props => {
 
 AddEpisodeForm = reduxForm({
   // a unique name for the form
-  form: "addEpisode"
+  form: 'addEpisode'
 })(AddEpisodeForm);
 
 export default AddEpisodeForm;
