@@ -47,8 +47,9 @@ class Dashboard extends React.Component {
 
 
   render() {
+    let allClosed = !this.state.locationOpen && !this.state.dateOpen && !this.state.sorterOpen
     return (
-      <div className="dashboard-container">
+      <div className={`dashboard-container ${allClosed ? 'dashboard-container--minified' : ''}`}>
         <div className='dashboardSelector'>
           <button className='dashboard-button' name='location' onClick={this.toggleLocation}>Where</button>
           <button className='dashboard-button' name='dates' onClick={this.toggleDates}>When</button>
