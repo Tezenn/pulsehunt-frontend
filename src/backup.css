@@ -89,17 +89,17 @@ button[type="submit"] {
 }
 
 .dashboard-container {
-  width: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  margin: 5px;
   background: rgba(0,0,0, 0.05);
-  height: 100%
+  overflow-y: scroll;
 }
 
 .dashboard-container > * {
   padding: 0 20px 20px;
-  margin-top: 10px;
 }
 
 .episode-list-item--button {
@@ -131,10 +131,9 @@ button[type="submit"] {
 
 
 .instruction {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-align: center
 }
 
 .vertical-group {
@@ -148,12 +147,12 @@ button[type="submit"] {
 
 .dashboard-button,
 .dashboard-input {
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 5px;
   border: none;
   margin: 2px;
-  height: 40px;
 }
+
 
 .date-container.disabled {
   opacity: 0.2;
@@ -252,7 +251,7 @@ width: 100%
 }
 
 .episodelist-list {
-  background-color: var(--pine);
+  background-color: white;
   display: flex;
   flex-flow: row nowrap;
   overflow-x: auto;
@@ -294,7 +293,7 @@ width: 100%
   margin: 10px 5px;
 }
 
-.episode-meta {
+.episode-meta * {
   background:  rgba(255, 255, 255, 0.5);
   padding: 8px;
 }
@@ -305,6 +304,10 @@ width: 100%
 
 .list-sort-container {
   display: block;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(248, 248, 248);
   margin-bottom: 20px;
 }
 
@@ -398,8 +401,6 @@ width: 100%
   padding: 0.5em 0.65em;
   cursor: pointer;
   overflow: visible;
-  background-color: white;
-  border-bottom: 0.5px solid black;
 }
 
 .geosuggest__item:hover,
@@ -557,13 +558,14 @@ width: 100%
 }
 
 .mapview-container {
-  display: block;
-  margin: 15px;
+  display: flex;
+  height: 100%;
   flex-flow: row wrap;
-}
-
-.episodelist-container {
-  margin-top: 20px;
+  width: 95vw;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
@@ -655,87 +657,40 @@ input:-webkit-autofill {
 
 
 @media screen and (max-width: 800px) {
-
+  .episode-list-item-container {
+    width: 100%;
+  }
+  .episodelist-list {
+  }
   .navbar-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
-    justify-content: space-evenly
-
+    justify-content: center
   }
   .nav-area {
-    flex-flow: row wrap;
-    justify-content: space-evenly
+    flex-flow: column wrap;
   }
-  .nav-area--links {
+  .nav-area--links div {
     margin-top: 10px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
   }
   .nav-area--links div a button  {
- 
-    margin: 3px 3px;
+    width: 60vw;
+    margin: 3px 0;
     cursor: pointer
 
   }
-
   .filterAndMap {
-    flex-flow: row wrap;
-    height: 82vh;
-  }
-
-  .mapview-container {
-    display: flex;
-    flex-flow: row wrap
-  }
-
-  .dashboard-container {
-    width: 100%;
-    height: 200px;
-  }
-  .dashboardSelector {
-    justify-content: space-evenly
-  }
-
-  .dashboardSelector h3 {
-  flex: 0 1 100% }
-  .dashboardSelector .dashboard-button {
-    width: 100%;
-    cursor: move
-}
-
-  .dashboard-container {
-  height: auto;
-  justify-content: center  }
-
-  .map-container {
-    height: 50vh;
-  }
-
-  .episode-list-item-container {
-    flex: 1 0 calc(50% - 20px);
-  }
-  
-  .vertical-group {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center
-  }
-  .vertical-group .dashboard-button {
-    flex: 1 0 calc(50% - 28px)
+    flex-flow: column wrap
   }
 }
 
-@media screen and (max-width: 468px) {
-  .episode-list-item-container {
-    flex: 1 0 calc(100% - 20px);
-  }
-}
-
-.dashboardSelector {
-  display: flex;
+.episode-list-item-container {
+  flex: 1 0 calc(100%);
 }
 
 .eventDate {
@@ -748,6 +703,14 @@ input:-webkit-autofill {
   display: inline-block;
   text-align: center;
   margin: 5px auto;
+}
+
+.eventDate strong {
+
+}
+
+.eventDate span {
+
 }
 
 .eventDates {

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Geosuggest from "react-geosuggest";
+import GeoSuggestionCreation from "react-geosuggest";
 import {
   changeCoords,
   changeAddress,
@@ -57,7 +57,7 @@ class LocationPicker extends React.Component {
               src="/images/navigation.svg"
             />
           </button>
-          <Geosuggest
+          <GeoSuggestionCreation
             onSuggestSelect={this.getCoordsAndAddressFromGoogle}
             placeholder="Type a location"
           />

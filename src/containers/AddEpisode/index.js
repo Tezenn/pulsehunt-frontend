@@ -106,7 +106,7 @@ class AddEpisode extends React.Component {
                           ? "image-item picked"
                           : "image-item"
                       }
-                      src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
+                      src={`https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg`}
                     />
                   );
                 })
