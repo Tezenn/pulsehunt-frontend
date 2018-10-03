@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { episodeFetchSuccess } from '../../actions';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import './style.css';
+import '../../styles.css';
 
 class Episode extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Episode extends React.Component {
       } = this.props.singleEpisode;
       const styles = photo
         ? {
-            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo})`,
+            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg)`,
             backgroundSize: 'cover'
           }
         : { backgroundColor: 'black' };
