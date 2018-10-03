@@ -14,12 +14,12 @@ class App extends Component {
     console.log('props from constructor: ', props);
     this.token = this.props.user.token;
     if (this.token) {
-      console.log('*****************');
       fetch('http://localhost:3001', {
-        headers: { Authorization: 'Bearer ' + this.token }
+        headers: {
+          Authorization: 'Bearer ' + this.token
+        }
       })
         .then(res => {
-          console.log('*******************', res);
           if (res.status === 401) this.props.deAuthenticateUser();
           //res = res.json();
           this.props.authenticateUser();
@@ -31,7 +31,6 @@ class App extends Component {
   }
   state = {};
   render() {
-    console.log('app rerendering..');
     return (
       <React.Fragment>
         <BrowserRouter>

@@ -18,7 +18,7 @@ const NavBar = props => {
         </div>
         <div className="nav-area--links">
           {props.signedInUser.name !== '' &&
-          props.signedInUser.isTrainer === 'trainer' ? (
+          props.signedInUser.type === 'trainer' ? (
             <div>
               <Link to="/add">
                 <button className="navbar-button">ADD WORKOUT</button>
