@@ -18,20 +18,27 @@ const NavBar = props => {
         </div>
         <div className="nav-area--links">
           {props.signedInUser.name !== '' &&
+<<<<<<< HEAD
           props.signedInUser.type === 'trainer' ? (
             <div>
               <Link to="/add">
                 <button className="navbar-button">ADD WORKOUT</button>
+=======
+            props.signedInUser.type === 'trainer' ? (
+              <div>
+                <Link to="/add">
+                  <button className="navbar-button">ADD WORKOUT</button>
+                </Link>
+                <Link to="/add">
+                  <button className="navbar-button">MY CALENDAR</button>
+                </Link>
+              </div>
+            ) : props.signedInUser.name !== '' ? (
+              <Link to="/schedule">
+                <button className="navbar-button">MY SCHEDULE</button>
+>>>>>>> 2d38c81b591d49a0baf7d207cc6b9ee1afa52c66
               </Link>
-              <Link to="/add">
-                <button className="navbar-button">MY CALENDAR</button>
-              </Link>
-            </div>
-          ) : props.signedInUser.name !== '' ? (
-            <Link to="/schedule">
-              <button className="navbar-button">MY SCHEDULE</button>
-            </Link>
-          ) : null}
+            ) : null}
         </div>
       </div>
     </div>
