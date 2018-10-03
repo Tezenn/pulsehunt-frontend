@@ -62,11 +62,7 @@ class Episode extends React.Component {
       } = this.props.singleEpisode;
       const styles = photo
         ? {
-<<<<<<< HEAD
             backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg)`,
-=======
-            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo})`,
->>>>>>> feat_episodes
             backgroundSize: 'cover'
           }
         : { backgroundColor: 'black' };
