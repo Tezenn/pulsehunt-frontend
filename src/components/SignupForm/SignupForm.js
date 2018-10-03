@@ -3,9 +3,7 @@ import { Field, Fields, reduxForm } from 'redux-form';
 import '../../styles.css';
 
 class SignupForm extends React.Component {
-  state = {
-    isTrainer: 'user'
-  };
+  state = {};
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -76,8 +74,8 @@ class SignupForm extends React.Component {
         <div className="form-group">
           <label htmlFor="role">Role:</label>
           <select
-            value={this.state.isTrainer}
-            name="isTrainer"
+            value={this.state.type}
+            name="type"
             onChange={this.handleChange}
           >
             <option value="trainer">trainer</option>
