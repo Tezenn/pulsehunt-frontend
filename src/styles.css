@@ -404,9 +404,7 @@ width: 100%
   border-bottom: 0.5px solid black;
 }
 
-.geosuggest__suggests-wrapper {
-  height: 50px;
-}
+
 
 .geosuggest__item:hover,
 .geosuggest__item:focus {
