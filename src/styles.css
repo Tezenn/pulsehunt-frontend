@@ -13,7 +13,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin-bottom: 10px;
-  overflow: hidden;
 }
 
 .form-group input,
@@ -403,6 +402,10 @@ width: 100%
   overflow: visible;
   background-color: white;
   border-bottom: 0.5px solid black;
+}
+
+.geosuggest__suggests-wrapper {
+  height: 50px;
 }
 
 .geosuggest__item:hover,
