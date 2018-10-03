@@ -29,7 +29,6 @@ export default class EpisodeListItem extends React.Component {
         {/*         <div className="episode-image">
         </div> */}
         {this.state.hovered ? ' ' : null}
-        >>>>>>> refs/remotes/origin/development
         <div className="episode-meta">
           <div>
             <h2>
