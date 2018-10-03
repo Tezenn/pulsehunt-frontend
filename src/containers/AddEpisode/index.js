@@ -6,18 +6,11 @@ import {
   pickEpisodePhoto,
   createEpisodeSuccess,
   createNewEpisode
-<<<<<<< HEAD
-} from "../../actions";
-import Dropzone from "react-dropzone";
-import AddEpisodeForm from "../../components/AddEpisodeForm";
-import "../../styles.css";
-import NavBar from '../../components/NavBar'
-=======
 } from '../../actions';
 import Dropzone from 'react-dropzone';
 import AddEpisodeForm from '../../components/AddEpisodeForm';
 import '../../styles.css';
->>>>>>> feat_episodes
+import NavBar from '../../components/NavBar';
 
 class AddEpisode extends React.Component {
   onDrop = (acceptedFiles, rejectedFiles) => {
@@ -83,23 +76,15 @@ class AddEpisode extends React.Component {
           <div className="form-part">
             <h2>Workout Details</h2>
             {!this.props.uploadSuccess ? (
-
-
-              <AddEpisodeForm onSubmit={this.submit}
-              />
+              <AddEpisodeForm onSubmit={this.submit} />
             ) : (
               <div>
                 Congrats! You just created a
                 <Link to={`/episode/${this.props.uploadSuccess}`}>
                   workout episode
                 </Link>
-<<<<<<< HEAD
-                  . Want to
-                <a onClick={this.props.createNewEpisode}> create another one</a>?
-=======
                 . Want to
                 <a onClick={this.props.createNewEpisode}>create another one</a>?
->>>>>>> feat_episodes
               </div>
             )}
           </div>
@@ -108,24 +93,6 @@ class AddEpisode extends React.Component {
             <div className="image-grid">
               {this.props.user.photos.length
                 ? this.props.user.photos.map(photo => {
-<<<<<<< HEAD
-                  return (
-                    <img
-                      onClick={this.togglePic}
-                      alt="Descriptive text"
-                      id={photo}
-                      key={photo}
-                      className={
-                        this.props.pickedPhoto === photo
-                          ? "image-item picked"
-                          : "image-item"
-                      }
-                      src={`https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg`}
-                    />
-                  );
-                })
-                : "No images uploaded yet!"}
-=======
                     return (
                       <img
                         onClick={this.togglePic}
@@ -137,12 +104,11 @@ class AddEpisode extends React.Component {
                             ? 'image-item picked'
                             : 'image-item'
                         }
-                        src={`http://res.cloudinary.com/cherlin/image/upload/c_thumb,g_center,h_200,q_auto:good,w_600/${photo}`}
+                        src={`https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg`}
                       />
                     );
                   })
                 : 'No images uploaded yet!'}
->>>>>>> feat_episodes
             </div>
             <Dropzone
               onDrop={files => this.onDrop(files)}

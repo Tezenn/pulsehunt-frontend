@@ -10,10 +10,7 @@ import Episode from '../../components/Episode';
 import NavBar from '../../components/NavBar';
 import '../../styles.css';
 import Popup from 'reactjs-popup';
-<<<<<<< HEAD
 import { API_KEY } from '../../config';
-=======
->>>>>>> feat_episodes
 
 class MapView extends React.Component {
   render() {
