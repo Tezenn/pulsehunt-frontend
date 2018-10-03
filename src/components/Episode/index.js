@@ -21,7 +21,12 @@ class Episode extends React.Component {
   }
 
   fetchEpisode = episodeId => {
-    fetch(`http://localhost:3001/episode/${episodeId}`)
+    fetch(`http://localhost:3001/episode/${episodeId}`, {
+      headers: {
+        authorization: `Bearer ${this.props.user.token}`,
+        'content-type': 'application/json'
+      }
+    })
       .then(episode => episode.json())
       .then(episode => {
         this.props.episodeFetchSuccess(episode);
@@ -34,6 +39,7 @@ class Episode extends React.Component {
       method: 'PUT',
       body: JSON.stringify({ episodes: this.props.match.params.id }),
       headers: {
+        authorization: `Bearer ${this.props.user.token}`,
         'Content-Type': 'application/json'
       }
     })
@@ -114,7 +120,8 @@ class Episode extends React.Component {
 const mapStateToProps = state => {
   return {
     singleEpisode: state.episodes.singleEpisode,
-    userId: state.user._id
+    userId: state.user._id,
+    user: state.user
   };
 };
 

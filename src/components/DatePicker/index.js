@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import moment from "moment";
-import { changeDateTimeInterval, episodesFetchSuccess } from "../../actions";
-import "../../styles.css";
+import React from 'react';
+import { connect } from 'react-redux';
+import moment from 'moment';
+import { changeDateTimeInterval, episodesFetchSuccess } from '../../actions';
+import '../../styles.css';
 
 class DatePicker extends React.Component {
   urlEncoder = date => {
-    return date.replace(":", "%3A");
+    return date.replace(':', '%3A');
   };
 
   fetchEpisodes = (start, end) => {
@@ -14,7 +14,13 @@ class DatePicker extends React.Component {
     fetch(
       `http://localhost:3001/episodes?lat=${latitude}&lng=${longitude}&start=${this.urlEncoder(
         start
-      )}&end=${this.urlEncoder(end)}`
+      )}&end=${this.urlEncoder(end)}`,
+      {
+        headers: {
+          authorization: `Bearer ${this.props.user.token}`,
+          'content-type': 'application/json'
+        }
+      }
     )
       .then(episodes => episodes.json())
       .then(episodes => this.props.episodesFetchSuccess(episodes))
@@ -24,39 +30,39 @@ class DatePicker extends React.Component {
   setDate = e => {
     e.preventDefault();
     const { changeDateTimeInterval } = this.props;
-    const dateFormat = "x";
+    const dateFormat = 'x';
 
     switch (e.target.id) {
-      case "today":
+      case 'today':
         const todayNow = moment().format(dateFormat);
         const todayEnd = moment()
-          .endOf("day")
+          .endOf('day')
           .format(dateFormat);
         changeDateTimeInterval(todayNow, todayEnd);
         this.fetchEpisodes(todayNow, todayEnd);
         break;
-      case "tomorrow":
+      case 'tomorrow':
         const tomorrowStart = moment()
-          .add(1, "days")
-          .startOf("day")
+          .add(1, 'days')
+          .startOf('day')
           .format(dateFormat);
         const tomorrowEnd = moment()
-          .add(1, "days")
-          .endOf("day")
+          .add(1, 'days')
+          .endOf('day')
           .format(dateFormat);
         changeDateTimeInterval(tomorrowStart, tomorrowEnd);
         this.fetchEpisodes(tomorrowStart, tomorrowEnd);
         break;
-      case "this-week":
+      case 'this-week':
         const now = moment().format(dateFormat);
         const weekEnd = moment()
-          .endOf("week")
+          .endOf('week')
           .format(dateFormat);
         changeDateTimeInterval(now, weekEnd);
         this.fetchEpisodes(now, weekEnd);
         break;
       default:
-        console.log("handle other date here!");
+        console.log('handle other date here!');
     }
   };
 
@@ -68,25 +74,29 @@ class DatePicker extends React.Component {
           <button
             className="dashboard-button"
             id="today"
-            onClick={this.setDate}>
+            onClick={this.setDate}
+          >
             TODAY
           </button>
           <button
             className="dashboard-button"
             id="tomorrow"
-            onClick={this.setDate}>
+            onClick={this.setDate}
+          >
             TOMORROW
           </button>
           <button
             className="dashboard-button"
             id="this-week"
-            onClick={this.setDate}>
+            onClick={this.setDate}
+          >
             THIS WEEK
           </button>
           <button
             className="dashboard-button"
             id="other"
-            onClick={this.setDate}>
+            onClick={this.setDate}
+          >
             OTHER
           </button>
         </div>
@@ -97,6 +107,7 @@ class DatePicker extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    user: state.user,
     filter: state.filter,
     filtered: state.episodes.filtered
   };

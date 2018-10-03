@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import "../../";
-import Logo from "../../assets/logo.png";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import '../../';
+import Logo from '../../assets/logo.png';
 
 const NavBar = props => {
   return (
@@ -17,19 +17,21 @@ const NavBar = props => {
           {`Hello, ${props.signedInUser.name}!`}
         </div>
         <div className="nav-area--links">
-          {props.signedInUser.name !== "" &&
-            props.signedInUser.type === "trainer" ? (
-              <div><Link to="/add">
+          {props.signedInUser.name !== '' &&
+          props.signedInUser.isTrainer === 'trainer' ? (
+            <div>
+              <Link to="/add">
                 <button className="navbar-button">ADD WORKOUT</button>
               </Link>
-                <Link to="/add">
-                  <button className="navbar-button">MY CALENDAR</button>
-                </Link></div>
-            ) : props.signedInUser.name !== "" ? (
-              <Link to="/schedule">
-                <button className="navbar-button">MY SCHEDULE</button>
+              <Link to="/add">
+                <button className="navbar-button">MY CALENDAR</button>
               </Link>
-            ) : null}
+            </div>
+          ) : props.signedInUser.name !== '' ? (
+            <Link to="/schedule">
+              <button className="navbar-button">MY SCHEDULE</button>
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

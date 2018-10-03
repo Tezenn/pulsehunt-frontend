@@ -58,12 +58,13 @@ class AddEpisode extends React.Component {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {
+        Authorization: `Bearer ${this.props.user.token}`,
         'content-type': 'application/json'
       }
     })
       .then(res => res.json())
       .then(res => this.props.createEpisodeSuccess(res._id))
-      .catch(err => console.log(err));
+      .catch(err => console.log('ERROR   :   ', err));
   };
 
   render() {
