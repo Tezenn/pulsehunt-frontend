@@ -29,11 +29,8 @@ class App extends Component {
   }
   state = {};
   render() {
-<<<<<<< HEAD
-=======
     const pathElements = window.location.href.split('/');
     const lastElement = pathElements[pathElements.length - 1];
->>>>>>> dca1d22d82a34bfda8d00d79a29ae29de7893e96
     return (
       <React.Fragment>
         <BrowserRouter>
