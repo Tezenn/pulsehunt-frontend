@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authenticateUser, deAuthenticateUser } from '../../actions';
 
-import NavBar from '../../components/NavBar/index';
 import MapView from '../../containers/MapView/index';
 import AddEpisode from '../../containers/AddEpisode/index';
 import LoginSignupPage from '../../containers/LoginSignupPage/LognSignupPage';
@@ -11,7 +10,6 @@ import LoginSignupPage from '../../containers/LoginSignupPage/LognSignupPage';
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log('props from constructor: ', props);
     this.token = this.props.user.token;
     if (this.token) {
       fetch('http://localhost:3001', {
@@ -31,11 +29,17 @@ class App extends Component {
   }
   state = {};
   render() {
+<<<<<<< HEAD
+=======
+    const pathElements = window.location.href.split('/');
+    const lastElement = pathElements[pathElements.length - 1];
+>>>>>>> dca1d22d82a34bfda8d00d79a29ae29de7893e96
     return (
       <React.Fragment>
         <BrowserRouter>
           <div className="app-container">
-            {!this.props.user.authenticated && <Redirect to="/login" />}
+            {lastElement !== 'login' &&
+              !this.props.user.authenticated && <Redirect to="/login" />}
             <Route exact path="/login" component={LoginSignupPage} />
             <Route exact path="/" component={MapView} />
             <Route path="/episode/:id" component={MapView} />

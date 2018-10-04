@@ -64,11 +64,11 @@ const app = (state = defaultState.app, action) => {
   }
 };
 
-let defaultLocation = navigator.geolocation.getCurrentPosition(function(
+/* let defaultLocation = navigator.geolocation.getCurrentPosition(function(
   position
 ) {
   () => position.coords.latitude, position.coords.longitude;
-});
+}); */
 
 const filter = (state = defaultState.filter, action) => {
   switch (action.type) {

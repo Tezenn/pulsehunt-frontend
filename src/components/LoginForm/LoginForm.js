@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
-/* import { Field, Fields, reduxForm } from "redux-form"; */
+import React from 'react';
 import '../../styles.css';
 import btoa from 'btoa';
-import { connect } from 'react-redux';
-import { setLoggedInUser } from '../../actions';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -20,7 +17,6 @@ class LoginForm extends React.Component {
 
   handleSubmit = e => {
     let test = btoa(this.state.username + ':' + this.state.password);
-    console.log('test: ', test);
     e.preventDefault();
     fetch('http://localhost:3001/trainer/signin', {
       headers: new Headers({
@@ -30,7 +26,6 @@ class LoginForm extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log('RES FROM LOGIN ', res);
         if (res.token) {
           this.props.setLoggedInUser(res);
           this.props.authenticateUser();

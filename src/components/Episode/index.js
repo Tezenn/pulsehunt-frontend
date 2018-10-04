@@ -53,7 +53,6 @@ class Episode extends React.Component {
     } else {
       const {
         name,
-        trainer,
         startTime,
         endTime,
         description,
@@ -62,9 +61,9 @@ class Episode extends React.Component {
       } = this.props.singleEpisode;
       const styles = photo
         ? {
-          backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg)`,
-          backgroundSize: 'cover'
-        }
+            backgroundImage: `linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg)`,
+            backgroundSize: 'cover'
+          }
         : { backgroundColor: 'black' };
       return (
         <div className="episode-container">
