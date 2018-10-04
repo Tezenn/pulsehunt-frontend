@@ -9,15 +9,11 @@ import UserMapWithSettings from '../../components/Map';
 import Episode from '../../components/Episode';
 import NavBar from '../../components/NavBar';
 import '../../styles.css';
-import Popup from 'reactjs-popup';
-import { API_KEY } from '../../config';
 
 class MapView extends React.Component {
   render() {
-    console.log(this.props.user);
     return (
       <div>
-        {' '}
         <NavBar signedInUser={this.props.user} />
         <div className="mapview-container">
           <div className="filterAndMap">

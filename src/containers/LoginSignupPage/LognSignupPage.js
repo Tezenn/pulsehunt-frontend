@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
 import '../../styles.css';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Logo from '../../assets/logo.png';
 import { connect } from 'react-redux';
 import { setLoggedInUser, authenticateUser } from '../../actions';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class LoginSignupPage extends Component {
   state = {

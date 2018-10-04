@@ -53,7 +53,6 @@ class Episode extends React.Component {
     } else {
       const {
         name,
-        trainer,
         startTime,
         endTime,
         description,

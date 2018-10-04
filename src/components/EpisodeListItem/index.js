@@ -2,8 +2,6 @@ import React from 'react';
 import '../../styles.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import Popup from 'reactjs-popup';
-import Episode from '../Episode';
 
 export default class EpisodeListItem extends React.Component {
   constructor(props) {
@@ -17,8 +15,7 @@ export default class EpisodeListItem extends React.Component {
     }));
   }
   render() {
-    const { _id, name, trainer, startTime, endTime, photo } = this.props.data;
-    console.log(this.props.data);
+    const { _id, name, trainer, startTime, endTime } = this.props.data;
     const dateTimeFormat = ' DD/MM/YYYY HH:mm';
     return (
       <article

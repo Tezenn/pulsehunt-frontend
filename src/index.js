@@ -16,10 +16,6 @@ let store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const userPos = navigator.geolocation.getCurrentPosition(function(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
-});
-
 store.subscribe(() => {
   saveState(store.getState());
 });
