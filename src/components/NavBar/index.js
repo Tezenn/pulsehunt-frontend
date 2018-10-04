@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../';
 import Logo from '../../assets/logo.png';
+import { deAuthenticateUser } from '../../actions';
 
 const NavBar = props => {
   return (
@@ -18,20 +19,21 @@ const NavBar = props => {
         </div>
         <div className="nav-area--links">
           {props.signedInUser.name !== '' &&
-          props.signedInUser.type === 'trainer' ? (
-            <div>
-              <Link to="/add">
-                <button className="navbar-button">ADD WORKOUT</button>
+            props.signedInUser.type === 'trainer' ? (
+              <React.Fragment>
+                <Link to="/add">
+                  <button className="navbar-button">ADD WORKOUT</button>
+                </Link>
+                <Link to="/add">
+                  <button className="navbar-button">MY CALENDAR</button>
+                </Link>
+              </React.Fragment>
+            ) : props.signedInUser.name !== '' ? (
+              <Link to="/schedule">
+                <button className="navbar-button">MY SCHEDULE</button>
               </Link>
-              <Link to="/add">
-                <button className="navbar-button">MY CALENDAR</button>
-              </Link>
-            </div>
-          ) : props.signedInUser.name !== '' ? (
-            <Link to="/schedule">
-              <button className="navbar-button">MY SCHEDULE</button>
-            </Link>
-          ) : null}
+            ) : null}
+          <button onClick={() => props.deAuthenticateUser()} className="navbar-button">GET OUT</button>
         </div>
       </div>
     </div>
@@ -73,4 +75,8 @@ const mapStateToProps = state => ({
   signedInUser: state.user
 });
 
-export default connect(mapStateToProps)(NavBar);
+const mapDispatchToProps = dispatch => ({
+  deAuthenticateUser: () => dispatch(deAuthenticateUser())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
