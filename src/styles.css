@@ -162,14 +162,14 @@ button[type="submit"] {
 }
 
 .episode-container {
-  flex: 1;
   background-color: rgb(248, 248, 248);
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  margin: 20px 45px;
+  border: 2px solid var(--pine)
 }
 
 .episode-header {
-  height: 200px;
   text-align: center;
   color: #fff;
   font-weight: 400;
@@ -177,7 +177,16 @@ button[type="submit"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 50px;
+  flex: 0 0 calc(25%);
+  background-size: cover;
+  background-image: url('https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg')
+}
+
+.episode-header h2, .episode-header p {
+  background: rgba(0,0,0, 0.6);
+  padding: 3px;
+  width: 125px;
+  margin: 0 auto;
 }
 
 .close-episode-card {
@@ -197,17 +206,34 @@ button[type="submit"] {
   display: flex;
 }
 
+.episode-container .body-container {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 75%
+}
+
 .time {
   border-bottom: 1px solid var(--granite);
+  flex: 0 0 100%;
+  justify-content: space-evenly;
+  align-items: center
 }
 
 .time .timepoint {
   padding: 10px 20px;
 }
 
+.timepoint:nth-child(1) {
+  font-weight: bold
+}
+
 .tags {
   padding: 10px 20px;
   border-bottom: 1px solid var(--granite);
+  display: flex;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center
 }
 
 .tagslist {
@@ -230,10 +256,15 @@ button[type="submit"] {
 
 .episode-content {
   padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1 0 100%;
 }
 
 .episode-desc {
-  margin-bottom: 20px;
+  flex: 1
 }
 
 .episode-actions {
@@ -269,6 +300,8 @@ width: 100%
   border-left: 5px solid var(--blue-sky);
   padding: 5px 20px;
   text-align: center;
+  display: flex;
+  flex-flow: column wrap
 }
 
 .episode-list-item-container * {
@@ -278,13 +311,10 @@ width: 100%
 
 
 .episode-image {
-  margin-right: 20px;
+  height: 125px
 }
 
-.episode-meta h2 {
-  font-size: 1.3rem;
-  margin: 2px 0 15px;
-}
+
 
 .episode-meta a {
   text-decoration: none;
@@ -292,7 +322,7 @@ width: 100%
 
 .episode-meta {
   padding: 5px;
-  margin: 10px 5px;
+  height: auto;
 }
 
 .episode-meta {
@@ -308,15 +338,14 @@ width: 100%
   margin-bottom: 20px;
 }
 
-.episode-list-item-container:nth-child(odd) {
+.episode-image:nth-child(odd) {
   background-image: url('https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049718/samples/landscapes/nature-mountains.jpg');
   background-size: cover;
 } 
 
-.episode-list-item-container:nth-child(even) {
-  background-image: url('https://res.cloudinary.com/dwmy3zgfc/image/upload/v1538049702/sample.jpg');
-  background-size: cover;
-} 
+.episode-meta  h3 {
+  margin: 0
+}
 
 
 
@@ -736,12 +765,29 @@ input:-webkit-autofill {
   .vertical-group .dashboard-button {
     flex: 1 0 calc(50% - 28px)
   }
+  .nav-area--links {
+    margin: 5px 0;
+  }
+  .episode-desc {
+    margin: 12px 0;
+  }
+  .episode-content {
+    flex-flow: column wrap
+
+  }
+  .nav-area--text {
+    margin-right: 10px;
+  }
 }
 
 @media screen and (max-width: 468px) {
+  
   .episode-list-item-container {
     flex: 1 0 calc(100% - 20px);
     
+  }
+  .episode-container {
+    flex-flow: column wrap;
   }
   .navbar-button {
     width: 90vw;
@@ -759,6 +805,10 @@ input:-webkit-autofill {
   display: flex;
 }
 
+strong span {
+  color: var(--pine);
+}
+
 .eventDate {
   flex: 1;
   justify-content: center;
@@ -768,7 +818,16 @@ input:-webkit-autofill {
   width: calc(80% - 10px);
   display: inline-block;
   text-align: center;
-  margin: 5px auto;
+  margin: 0 auto;
+}
+
+.episode-infos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.episode-infos h3 a {
+  color: var(--pine)
 }
 
 .eventDates {

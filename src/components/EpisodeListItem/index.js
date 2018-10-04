@@ -23,17 +23,15 @@ export default class EpisodeListItem extends React.Component {
         onMouseEnter={this.toggleHover}
         onMouseLeave={this.toggleHover}
       >
-        {/*         <div className="episode-image">
-        </div> */}
         {this.state.hovered ? ' ' : null}
+        <Link to={`/episode/${_id}`}><div className="episode-image" onMouseEnter={() => this.toggleHover} onMouseLeave={() => this.toggleHover}>
+        </div></Link>
         <div className="episode-meta">
-          <div>
+          <div className='episode-infos'>
             <h3>
               <Link to={`/episode/${_id}`}>{name.length > 15 ? name.substring(0, 15) + '...' : name}</Link>
             </h3>
-          </div>
-          <div>
-            <strong>By {trainer.name} </strong>
+            <strong>By <span>{trainer.name}</span> </strong>
           </div>
           <div className="eventDates">
             <div className="eventDate">
