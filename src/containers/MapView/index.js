@@ -17,7 +17,6 @@ class MapView extends React.Component {
     console.log(this.props.user);
     return (
       <div>
-        {' '}
         <NavBar signedInUser={this.props.user} />
         <div className="mapview-container">
           <div className="filterAndMap">

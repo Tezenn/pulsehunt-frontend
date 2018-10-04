@@ -93,7 +93,7 @@ button[type="submit"] {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  background: rgba(0,0,0, 0.05);
+  background: var(--granite);
 }
 
 .dashboard-container > * {
@@ -255,7 +255,6 @@ width: 100%
 }
 
 .episodelist-list {
-  background-color: var(--pine);
   display: flex;
   flex-flow: row nowrap;
   overflow-x: auto;
@@ -299,7 +298,6 @@ width: 100%
 
 .episode-meta {
   background:  rgba(255, 255, 255, 0.5);
-  padding: 8px;
 }
 
 .filter-container.disabled {
@@ -442,7 +440,7 @@ width: 100%
 
 .navbar-container {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--granite);
   color: white;
   padding: 10px 20px;
   justify-content: space-between;
@@ -459,16 +457,20 @@ width: 100%
 .nav-area--links {
   margin-right: 20px;
   margin-left: 20px;
+  display: flex;
   
 }
 
+
+.nav-area--text {
+  flex: 1;
+  text-align: center
+}
 .navbar-button {
   font-size: 1rem;
   padding: 16px;
   border: none;
   margin-right: 20px;
-  width: auto;
-  min-width: 120px;
   align-items: center
 }
 
@@ -574,7 +576,7 @@ width: 100%
 :root {
   --blue-sky: #4cb5f5;
   --pine: #34675c;
-  --granite: #b7b8b6;
+  --granite: rgba(0, 0, 0, 0.05);
   --fields: #b3c100;
   --black: rgba(0, 0, 0, 0.8);
 }
@@ -738,6 +740,17 @@ input:-webkit-autofill {
 @media screen and (max-width: 468px) {
   .episode-list-item-container {
     flex: 1 0 calc(100% - 20px);
+    
+  }
+  .navbar-button {
+    width: 90vw;
+    margin: 4px 0;
+    padding: 5px;
+  }
+  .nav-area--links{
+    margin: 0;
+    margin-top: 15px;
+    
   }
 }
 
