@@ -28,9 +28,9 @@ export default class EpisodeListItem extends React.Component {
         {this.state.hovered ? ' ' : null}
         <div className="episode-meta">
           <div>
-            <h2>
-              <Link to={`/episode/${_id}`}>{name}</Link>
-            </h2>
+            <h3>
+              <Link to={`/episode/${_id}`}>{name.length > 15 ? name.substring(0, 15) + '...' : name}</Link>
+            </h3>
           </div>
           <div>
             <strong>By {trainer.name} </strong>
