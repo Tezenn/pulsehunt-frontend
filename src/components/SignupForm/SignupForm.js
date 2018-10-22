@@ -19,7 +19,6 @@ class SignupForm extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log('res from signup: ', res);
         if (res.token) {
           this.props.setLoggedInUser(res);
           this.props.authenticateUser();

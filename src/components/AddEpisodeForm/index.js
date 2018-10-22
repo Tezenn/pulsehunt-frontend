@@ -38,6 +38,7 @@ let AddEpisodeForm = props => {
           component="textarea"
           type="text"
           rows="4"
+          required
           placeholder="A sweaty session to start of the weekend, using your body and your classmates as resistance. Bring yourself and a good mood, and we'll take care of the rest"
         />
       </div>
@@ -82,7 +83,7 @@ let AddEpisodeForm = props => {
       </div>
       <div className="form-group">
         <label htmlFor="tags">Tags (comma separated)</label>
-        <Field name="tags" component="input" type="text" />
+        <Field name="tags" component="input" type="text" required />
       </div>
       <button type="submit">Add to schedule</button>
     </form>
