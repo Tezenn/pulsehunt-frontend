@@ -1,7 +1,7 @@
 # Pulse Hunt (client/frontend)
-Pulse Hunt is a market place where Indie Trainers can offer their workout sessions to users. The project was initiated as a one week solo project when attending [Codeworks](https://codeworks.me) Coding Bootcamp in Barcelona.
+Pulse Hunt is a market place where Indie Trainers can offer their workout sessions to users.
 
-This is the client/frontend. The server/backend can be found [here](https://github.com/cherlin/pulsehunt-backend "Pulse Hunt backend")
+This is the client/frontend. The server/backend can be found [here](https://github.com/Tezenn/pulsehunt-backend "Pulse Hunt backend")
 
 ## Screenshots
 
@@ -28,9 +28,6 @@ In order to run this frontend, you need [the corresponding backend](https://gith
 
 ## Upcoming
 * GraphQL implementation.
-* Authentication using OAuth and JWT.
-* Mobile responsiveness.
-* Create a landing page.
 * Add profile pages for users and trainers.
 * Management features for trainers.
 
