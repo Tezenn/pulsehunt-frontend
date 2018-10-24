@@ -31,7 +31,7 @@ class Episode extends React.Component {
       .then(episode => {
         this.props.episodeFetchSuccess(episode);
       })
-      .catch(err => console.warning(err));
+      .catch(err => console.log(err));
   };
 
   joinEpisode = episodeId => {
@@ -72,7 +72,7 @@ class Episode extends React.Component {
               <Link to="/">CLOSE</Link>
             </div>
             <h2>{name}</h2>
-            <p className="trainer">test</p>
+            <p className="trainer">{this.props.user.name}</p>
           </header>
           <div className="body-container">
             <div className="time">
@@ -97,6 +97,8 @@ class Episode extends React.Component {
                   <li key={tag}>{tag}</li>
                 ))}
               </ul>
+              <p>{this.props.singleEpisode.location.address}</p>
+
             </div>
             <div className="episode-content">
               <div className="episode-desc">{description}</div>

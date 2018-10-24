@@ -231,6 +231,7 @@ button[type="submit"] {
   padding: 10px 20px;
   border-bottom: 1px solid var(--granite);
   display: flex;
+  flex-flow: row wrap;
   flex: 1 1 100%;
   align-items: center;
   justify-content: center
@@ -244,6 +245,14 @@ button[type="submit"] {
 
 .tagslist:first-child {
   margin-left: 20px;
+}
+
+.tags p {
+  margin-left: auto
+}
+
+.tags p::before {
+  content: "location: "
 }
 
 .tagslist li {
@@ -782,6 +791,10 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 468px) {
   
+  .episode-container .episode-header {
+    flex-basis: 100% !important;
+  }
+
   .episode-list-item-container {
     flex: 1 0 calc(100% - 20px);
     

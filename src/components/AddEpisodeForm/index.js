@@ -4,7 +4,6 @@ import CreateGeoSuggest from '../CreateGeoSuggest';
 import '../../styles.css';
 
 let AddEpisodeForm = props => {
-  console.log(props);
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className="add-episode-form-container">
